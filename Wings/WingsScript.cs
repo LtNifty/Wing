@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using ThunderRoad;
 
-namespace Wings
+namespace WingsNomad
 {
-    public class WingsScript : ThunderScript
+    public class WingsScriptNomad : ThunderScript
     {
         // Source: @Wully on BaS Discord
         // Big help in getting this ready for U12
@@ -45,19 +45,19 @@ namespace Wings
         public override void ScriptLoaded(ModManager.ModData modData)
         {
             base.ScriptLoaded(modData);
-            if (PlayerControl.loader == PlayerControl.Loader.OpenVR)
-            {
-                ((InputSteamVR)PlayerControl.input).jumpAction.onStateDown += ((fromAction, fromSource) =>
-                {
-                    if (!Player.local.locomotion.isGrounded)
-                    {
-                        if (isFlying)
-                            DeactivateFly();
-                        else
-                            ActivateFly();
-                    }
-                });
-            }
+            /*            if (PlayerControl.loader == PlayerControl.Loader.OpenVR)
+                        {
+                            ((InputSteamVR)PlayerControl.input).jumpAction.onStateDown += ((fromAction, fromSource) =>
+                            {
+                                if (!Player.local.locomotion.isGrounded)
+                                {
+                                    if (isFlying)
+                                        DeactivateFly();
+                                    else
+                                        ActivateFly();
+                                }
+                            });
+                        }*/
         }
 
         private void ActivateFly()
@@ -126,8 +126,8 @@ namespace Wings
 
                         if (PlayerControl.loader == PlayerControl.Loader.Oculus)
                             TryFlyUp(((InputXR_Oculus)PlayerControl.input).rightController.thumbstick.GetValue());
-                        else
-                            TryFlyUp(((InputSteamVR)PlayerControl.input).turnAction.axis);
+                        /*                        else
+                                                    TryFlyUp(((InputSteamVR)PlayerControl.input).turnAction.axis);*/
                     }
                 }
             }
