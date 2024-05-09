@@ -42,24 +42,6 @@ namespace WingsNomad
         private bool isFlying;
         private bool pressedIn, previousPressedIn;
 
-        public override void ScriptLoaded(ModManager.ModData modData)
-        {
-            base.ScriptLoaded(modData);
-            /*            if (PlayerControl.loader == PlayerControl.Loader.OpenVR)
-                        {
-                            ((InputSteamVR)PlayerControl.input).jumpAction.onStateDown += ((fromAction, fromSource) =>
-                            {
-                                if (!Player.local.locomotion.isGrounded)
-                                {
-                                    if (isFlying)
-                                        DeactivateFly();
-                                    else
-                                        ActivateFly();
-                                }
-                            });
-                        }*/
-        }
-
         private void ActivateFly()
         {
             loco = Player.local.locomotion;
@@ -126,8 +108,6 @@ namespace WingsNomad
 
                         if (PlayerControl.loader == PlayerControl.Loader.Oculus)
                             TryFlyUp(((InputXR_Oculus)PlayerControl.input).rightController.thumbstick.GetValue());
-                        /*                        else
-                                                    TryFlyUp(((InputSteamVR)PlayerControl.input).turnAction.axis);*/
                     }
                 }
             }
